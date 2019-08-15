@@ -40,7 +40,7 @@ const bundleHTML = async () => {
     bundle => bundle.type === 'js',
   )
 
-  const [, sourceName] = /.+\\(.+?.js)$/.exec(name)
+  const [, sourceName] = /.+\/(.+?.js)$/.exec(name)
 
   const htmlSource = await fs.readFile(HTML_OUTPUT, 'utf8')
   await fs.writeFile(HTML_OUTPUT, htmlSource.replace(sourceName, 'bundle.js'))
